@@ -3,17 +3,18 @@
  * @summary: ResponsibleBox Action counter
  * @author: Marco Crotta info@BlockchainCaffe.it
  */
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.19;
 contract ResponsibleBox {
 
-    // master address
+    // Master address
     address rbMaster;
 
-    // Arrays
-    string[]  public name;
-    uint[]    public milliActionCounter;
+    // Public Arrays
+    string[]    public scadaName;
+    uint[]      public milliActionCounter;
+    address[]   public scadaAddress;
 
-    // map addresses to theyr array indexed
+    // map addresses to theyr array iz
     mapping (address => uint) public positionOf;
 
     modifier onlyMaster {
@@ -26,26 +27,32 @@ contract ResponsibleBox {
         rbMaster = msg.sender;
     }
 
-    function addScada (string _name, address _adr) public onlyMaster returns (uint)  {
-        name.push(_name);
+    function addScada (string _name, address _adr) public onlyMaster  {
+        scadaName.push(_name);
         milliActionCounter.push(0);
-        positionOf[_adr] = name.length -1 ;
-        return name.length-1;
+        scadaAddress.push(_adr);
+        positionOf[_adr] = scadaName.length -1 ;
     }
 
-    function setMacById (uint _id, uint _mac) onlyMaster public returns (uint) {
+    function setMacById (uint _id, uint _mac) onlyMaster public {
         milliActionCounter[_id] = _mac;
-        return milliActionCounter[_id];
     }
 
-    function setMacByAddr (address _adr, uint _mac) onlyMaster public returns (uint) {
+    function setMacByAddr (address _adr, uint _mac) onlyMaster public {
         milliActionCounter[positionOf[_adr]] = _mac;
-        return milliActionCounter[positionOf[_adr]];
     }
 
-    function addMac (uint _mac) public returns (uint) {
+    function addMac (uint _mac) public {
+        // If the address mapping is zero (and is not master) skip
+        require ( (msg.sender == rbMaster) || ( positionOf[msg.sender] != uint(0) ) );
         milliActionCounter[positionOf[msg.sender]] += _mac;
-        return milliActionCounter[positionOf[msg.sender]];
+    }
+
+    function getTotal () constant public returns (uint Total) {
+        Total = 0;
+        for (uint i=0; i < milliActionCounter.length; i++) {
+            Total += milliActionCounter[i];
+        }
     }
 
 }
