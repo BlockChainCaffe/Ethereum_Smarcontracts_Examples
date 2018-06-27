@@ -1,5 +1,6 @@
 # Responsible Box Kit
 
+## Elenco dei file ##
  * **ResponsibleBox.sol** codice dello smart contract
  * **Infura_Ridef.txt** parametri per la connessione al Gateway
  * **gettrcount.sh** script per la determinazione del nonce
@@ -18,7 +19,8 @@
  * CURL
 
 ### Librerie python
- come utenza root:
+Instalare le seguenti dipendenze di python come utenza root:
+(l'esempio è fatto su una distro Ubuntu/Debian/Mint ma analoghe operazioni si possono fare su macchine basate su RedHat/CentOS con yum)
 
 ```
 apt-get install python3-dev
