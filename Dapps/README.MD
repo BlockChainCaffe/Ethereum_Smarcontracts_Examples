@@ -33,7 +33,7 @@ pip3 web3 web3utils
 
 ### Configurazione smart Contracts
 
-una volta deployato con remix lo smart-cotract si dovranno abilitare i singoli indirizzi dei singoli scada per permettere loro l'invio
+Una volta eseguito il deploy con remix lo smart-cotract si dovranno abilitare i singoli indirizzi dei singoli scada per permettere loro l'invio. Questa operazione manuale può essere effettuata solo dall'indirizzo master che ha fatto il deploy dello smart contract. L'operazione può essere eseguita manualmente sempre da remix
 
 ### Configurazione Scada
 
@@ -74,10 +74,9 @@ Il risultato (in caso di successo) sarà una stringa JSON di questo tipo
  * è possibile usare l'id della transazione su https://ropsten.etherscan.io per valutare l'andamento
  * quando la transazione entra nello stato **Success** si potrà verificare l'aggiornamento dei dati all'interno dello smart contract con remix
 
-### Come funzionaeri numerodi di operazioni già effettuate da quell'inidirizzo
+### Come funziona
 
-* successivamente chiama sign.py per creare e firmare la transazione
-
-* infine la transazione firmata viene mandata alla rete tramite il gateway infura con una chiamata curl
-
-* la chiamata curl termina restituendo un json con il numero della transizione che si può monitorare da etherscam
+* gettrcount.sh esegue una query CURL per recuperare il numerodi di operazioni già effettuate da quell'inidirizzo (nonce)
+* successivamente chiama sign.py per creare e firmare la transazione con la chiave privata associata all'indirizzo
+* infine la transazione firmata viene mandata alla rete tramite il gateway infura con una chiamata CURL
+* la chiamata CURL termina restituendo un JSON con il numero della transizione che si può monitorare da etherscan (su rete ropsten)
