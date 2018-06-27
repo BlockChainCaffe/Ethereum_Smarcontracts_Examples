@@ -44,7 +44,7 @@ contract ResponsibleBox {
 
     function addMac (uint _mac) public {
         // If the address mapping is zero (and is not master) skip
-        require ( (msg.sender != rbMaster) && ( positionOf[msg.sender] != uint(0) ) );
+        require ( msg.sender == scadaAddress[positionOf[msg.sender]] );
         milliActionCounter[positionOf[msg.sender]] += _mac;
     }
 
