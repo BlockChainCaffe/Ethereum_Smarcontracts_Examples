@@ -16,6 +16,16 @@
  * web3, web3utils
  * browser chrome con estensione metamask https://metamask.io/
 
+### Librerie python
+ come utenza root:
+
+```
+apt-get install python3-dev
+pip3 install setuputils
+pip3 install ethtoken
+pip3 web3 web3utils
+```
+
 ## Configurazione
 
 ### Configurazione smart Contracts

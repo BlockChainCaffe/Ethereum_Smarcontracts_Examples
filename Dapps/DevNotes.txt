@@ -40,5 +40,5 @@ params: [{
 
 
 sudo apt-get install python3-dev
-pip3 install ethtoken
-pip3 install setuputils web3 web3utils
+sudo pip3 install ethtoken
+sudo pip3 install setuputils web3 web3utils
