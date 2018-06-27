@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FROM=$1
-VALUE=$2
+FROM=$(cat config.py | grep myaddress | grep -v "^#" | sed "s:\"$::" | sed "s:^.*\"::")
+VALUE=$1
 
 NONCE=$(./gettrcount.sh $FROM)
 TR=$(python3 sign.py $VALUE $NONCE)

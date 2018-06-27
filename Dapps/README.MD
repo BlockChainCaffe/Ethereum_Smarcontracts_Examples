@@ -14,14 +14,15 @@
 
  * python3
  * web3, web3utils
- * browser chrome con estensione metamask https://metamask.io/
+ * browser chrome con estensione metamask ( https://metamask.io/ )
+ * CURL
 
 ### Librerie python
  come utenza root:
 
 ```
 apt-get install python3-dev
-pip3 install setuputils
+pip3 install setuptools
 pip3 install ethtoken
 pip3 web3 web3utils
 ```
@@ -56,19 +57,22 @@ Una volta creato il nuovo indirizzo e salvati i parametri, è opportuno trasferi
 
 Dalla cartella in cui è scaricato il pacchetto lanciare il comando
 
+```
+send.sh <QUANTITA>
+```
+dove il parametro obbligatorio **quantità** indica i **millesimi di unità** da registrare
+
+Il risultato (in caso di successo) sarà una stringa JSON di questo tipo
 
 ```
-send.sh <MITTENTE> <QUANTITA>
+{"jsonrpc":"2.0","id":1,"result":"0xcbd4633a03939b8743a9704f7f34f17c70d1bf9d733567239bdc03c3fce496b6"}
 ```
+ * i primi due campi del JSON (jsonrpc e id) si possono ignorare
+ * il campo **result** contiene l'id della transazione lanciata
+ * è possibile usare l'id della transazione su https://ropsten.etherscan.io per valutare l'andamento
+ * quando la transazione entra nello stato **Success** si potrà verificare l'aggiornamento dei dati all'interno dello smart contract con remix
 
-dove:
- * **mittente** si riferisce all'indirizzo del singolo scada che effettua l'operazione
- * **quantità** indica i millesimi di unità da registrare
-
-
-### Come funziona
-
-* send.sh chiama un primo script gettrcount.sh per trovare il numerodi di operazioni già effettuate da quell'inidirizzo
+### Come funzionaeri numerodi di operazioni già effettuate da quell'inidirizzo
 
 * successivamente chiama sign.py per creare e firmare la transazione
 
