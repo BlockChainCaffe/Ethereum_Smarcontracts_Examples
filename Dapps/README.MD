@@ -57,10 +57,16 @@ Una volta creato il nuovo indirizzo e salvati i parametri, è opportuno trasferi
 
 ## Utilizzo
 
+Esistono due funzioni pubbliche implementate nello smart contract. La prima funzione permette
+di inviare unità di valore al proprio conto. La seconda permette di devolvere (pagare) una determinata quantità di valore dal proprio conto verso un beneficiario.
+
+### Invio
+Solo gli indirizzi scada abilitati dall'indirizzo Master hanno questa possibilità.
 Dalla cartella in cui è scaricato il pacchetto lanciare il comando
 
 ```
 send.sh <QUANTITA>
+
 ```
 dove il parametro obbligatorio **quantità** indica i **millesimi di unità** da registrare
 
@@ -74,9 +80,26 @@ Il risultato (in caso di successo) sarà una stringa JSON di questo tipo
  * è possibile usare l'id della transazione su https://ropsten.etherscan.io per valutare l'andamento
  * quando la transazione entra nello stato **Success** si potrà verificare l'aggiornamento dei dati all'interno dello smart contract con remix
 
+
+### Pagamento
+Solo gli indirizzi scada abilitati dall'indirizzo Master hanno questa possibilità, così
+pure i beneficiari possibili sono solo tra gli indirizzi abilitati. Il valore quindi resta
+all'interno del circuito.
+Dalla cartella in cui è scaricato il pacchetto lanciare il comando
+
+```
+pay.sh <QUANTITA> <DESTINATARIO>
+
+```
+dove il parametro obbligatorio **quantità** indica i **millesimi di unità** da registrare e **indirizzo** indica il destinatario (indirizzo ethereum)
+
+Il risultato è nello stesso formato del comando send.
+
+
 ### Come funziona
 
+* lo script bash prende i parametri in ingresso e carica quelli nel file di configurazione
 * gettrcount.sh esegue una query CURL per recuperare il numerodi di operazioni già effettuate da quell'inidirizzo (nonce)
-* successivamente chiama sign.py per creare e firmare la transazione con la chiave privata associata all'indirizzo
+* successivamente chiama send.py o pay.py per creare e firmare la transazione con la chiave privata associata all'indirizzo
 * infine la transazione firmata viene mandata alla rete tramite il gateway infura con una chiamata CURL
 * la chiamata CURL termina restituendo un JSON con il numero della transizione che si può monitorare da etherscan (su rete ropsten)

@@ -11,9 +11,10 @@
 #   - one it's private key
 #--------------------------------------------------------------
 
-contract   = "0x5E4fC9D07Fe54F3f0D79C8af1A87a7E6dcDDD6BD"
-myaddress  = "0x0E33CaF70A010039450cFdc5C7D101b50E2cb6E2"
-privatekey = "f61cbe045ddab94d6c224fdcc9f1d57a52d39c9eb1455cfcc6981f5780bc0552"
+contract   = "0x064cAb97F78C934A1423317787fEcE9563b5a011"
+
+#myaddress  = "0x0E33CaF70A010039450cFdc5C7D101b50E2cb6E2"
+#privatekey = "f61cbe045ddab94d6c224fdcc9f1d57a52d39c9eb1455cfcc6981f5780bc0552"
 
 #myaddress  = "0x0e5a3C9340DA08DbE0dE157aeb9A5991ea2da378"
 #privatekey = "b052fd1f5b60c3dd7cddf53151cd15f673135edc1664f8211a95ea24f8ae5b87"
@@ -25,8 +26,8 @@ privatekey = "f61cbe045ddab94d6c224fdcc9f1d57a52d39c9eb1455cfcc6981f5780bc0552"
 #myaddress  = "0xC98AC0b9C2afB3A7EB7ca92fb3960bd5c3184390"
 #privatekey = "cbbda225d1e89efd8f8e5dcc71529b3f177e7abc20e43d0dcecfe99dea4e7511"
 
-#myaddress  = "0x286dE92F63753BF3C4928B34dF8B9D0Fa74695e6"
-#privatekey = "48d2ba6deefc713d0fbd80c7c2ed383d73ea8991b01043fc2fc5ee94b18bfe3d"
+myaddress  = "0x286dE92F63753BF3C4928B34dF8B9D0Fa74695e6"
+privatekey = "48d2ba6deefc713d0fbd80c7c2ed383d73ea8991b01043fc2fc5ee94b18bfe3d"
 
 #myaddress  = "0xA9f42D40f96b09C15a031694f34210aC08957F17"
 #privatekey = "b02e38c300189178f8e8af0b4032a77c0511f8925a5685a97a79483d5ed7e83f"
