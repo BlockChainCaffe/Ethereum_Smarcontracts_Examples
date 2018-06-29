@@ -4,8 +4,10 @@
  * **ResponsibleBox.sol** codice dello smart contract
  * **Infura_Ridef.txt** parametri per la connessione al Gateway
  * **gettrcount.sh** script per la determinazione del nonce
- * **send.sh** script per l'invio
- * **sign.py** script python per la firma delle transazioni
+ * **send.sh** script per l'invio di millesimi di unità
+ * **send.py** script python per la firma delle transazioni di invio
+ * **pay.sh** script bash per il trasferimento di millesimi di unità ad un altro account
+ * **pay.py** script python per la firma delle transazioni di trasferimento
  * **config.py** file di configurazione di sign.py
  * DevNotes.txt :solo appunti
 
